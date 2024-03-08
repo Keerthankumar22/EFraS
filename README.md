@@ -203,7 +203,9 @@ The results from multiple experiments run in [runner.py] are captured in this Ex
 - **avg_link_utilization**: 
 - **avg_node_utilization**:
 
-### Delineation of all simulation parameters captured in the manuscript is reproduced using the below equations.
+### The delineation of all simulation parameters captured in the manuscript is reproduced using the equations below.
+
+![Alt text](https://github.com/Keerthankumar22/EFraS2/blob/main/Images/1.jpg) 
 
  
 ### Performance Evaulation
