@@ -207,6 +207,8 @@ The results from multiple experiments run in [runner.py] are captured in this Ex
 
 ![Alt text](https://github.com/Keerthankumar22/EFraS2/blob/main/Images/1.jpg) 
 
+![Alt text](https://github.com/Keerthankumar22/EFraS2/blob/main/Images/2.jpg) 
+
  
 ### Performance Evaulation
 The Proposed EFraS framework is evaluated by implementing the following state-of-the-art papers.<br />
