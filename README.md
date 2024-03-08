@@ -202,6 +202,9 @@ The results from multiple experiments run in [runner.py] are captured in this Ex
 - **avg_crb_utilization**: 
 - **avg_link_utilization**: 
 - **avg_node_utilization**:
+
+### Delineation of all simulation parameters captured in the manuscript is reproduced using the below equations.
+
  
 ### Performance Evaulation
 The Proposed EFraS framework is evaluated by implementing the following state-of-the-art papers.<br />
