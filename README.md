@@ -10,7 +10,7 @@ Physical Memory (RAM) 16.0 GB.<br />
 
 ### Prerequisites
 
-Python 3.9.<br />
+Python 3.6.<br />
 PyCharm Community Edition 2021.2. <br />
 Mininet utility.<br />
 
@@ -169,7 +169,7 @@ In this example, mapping was found for 3 out of the 4 VNRs.
 ### Additional ping tests
 To demonstrate that VLANs are able to provide isolation between VNRs, we can run `pingall` between every pair of hosts in the network. 
 - As expected, all the substrate hosts are able to reach every other substrate host (h1, h2, h3, ..., h18), and no other virtual hosts. 
-- VNR1 has 4 virtual hosts (vnr1_vh1, vnr1_vh2, vnr1_vh3, vnr1_vh4); and as expected, each virtual host of VNR1 is able to reach every other virtual host of VNR1, but not able to reach any other host (i.e. any substrate host or any host of VNR2 or VNR3).
+- VNR1 has four virtual hosts (vnr1_vh1, vnr1_vh2, vnr1_vh3, vnr1_vh4); and as expected, each virtual host of VNR1 is able to reach every other virtual host of VNR1, but not able to reach any other host (i.e. any substrate host or any host of VNR2 or VNR3).
 - Similar results can be observed for VNR2 and VNR3. Hence, isolation is achieved using VLANs in our emulator's network.
 
 
