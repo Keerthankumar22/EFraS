@@ -1,0 +1,45 @@
+{
+    "substrate": {
+
+        "sl_factor": 3,
+        "ll_factor": 6,
+        "hl_factor": 3,
+
+        "cpu_limit_min": 20,
+        "cpu_limit_max": 100,
+
+
+        "spine_to_leaf_links": {
+            "bw_limit_min": 50,
+            "bw_limit_max": 100
+        },
+
+        "leaf_to_host_links": {
+            "bw_limit_min": 50,
+            "bw_limit_max": 100
+        }
+    },
+
+    "vnrs": {
+        "num_vnrs": 4,
+        "min_nodes": 2, 
+        "max_nodes": 10,
+        "probability": 0.4, 
+        "min_cpu": 1,
+        "max_cpu": 10,
+        "min_bw": 1,
+        "max_bw": 5
+    },
+    "seed_for_substrate_network": "9",
+
+    "Xvne_algorithm": "worst-fit-algorithm",
+    "Qvne_algorithm": "nrm-algorithm",
+    "vne_algorithm": "ahp-algorithm",
+
+
+
+    "iterations": 1,
+
+    "vne_algorithms": ["worst-fit-algorithm", "nrm-algorithm", "ahp-algorithm"],
+    "num_vnrs_list": [3, 6, 9, 12]
+}
