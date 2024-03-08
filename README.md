@@ -35,7 +35,7 @@ Mininet utility.<br />
         
         The two main executable files are `main.py` and `runner.py`. </br>
           - `main.py`: Used to run one experiment at a time. It reads configurations from the `configurations.json` file. </br>
-          - `runner.py`: Used to run multiple experiments (over multiple iterations, for different numbers of VNRs, and for various VNE algorithms) at a time. It internally makes calls to the `main.py` depending on the configurations mentioned in `configurations.json`.
+          - `runner.py`: Used to run multiple experiments (over multiple iterations, for different numbers of VNRs, and for various VNE algorithms) simultaneously. It internally makes calls to the `main.py` depending on the configurations mentioned in `configurations.json`.
           </br>
         ``` 
         $ sudo python3 vne/runner.py 
@@ -50,12 +50,12 @@ Mininet utility.<br />
  - Optional installations: </br>
  If we wish to use the RYU controller (instead of Mininet's default ovs-controller), we must do additional installations.
      - Install [RYU controller](https://ryu.readthedocs.io/en/latest/getting_started.html)
-     - Move/copy the ryu controller file `ryu_controller_vne.py` to the location where we installed RYU, into the directory `ryu/app/`
+     - Move/copy the ryu controller file `ryu_controller_vne.py` to the location where we installed **Ryu** into the directory `ryu/app/`
      - Start the ryu controller </br>
         ``` 
         $ ryu-manager ryu/app/ryu_controller_vne.py 
         ```
-       we can modify this controller file to leverage RYU's features.
+       We can modify this controller file to leverage **Ryu**  features.
 
 ## Overview
 The VNE emulator has the following main components:
@@ -64,11 +64,11 @@ The VNE emulator has the following main components:
 
 - **Generate VNRs**: Set/pool of VNRs is generated. The CPU and link bandwidth requirement limits can be specified in the configurations file, along with other parameters, such as the number of VNRs to generate. The list of VNRs can also be ranked/ordered before trying to serve/map them onto the substrate network.
 
-- **VNE Algorithm**: Once the substrate network is ready and you have the list of VNRs to serve, the VNE algorithms module loops over the list of VNRs trying to serve/map them one at a time. It currently supports multiple VNE algorithms such as MWF, NORD, VNE-NRM, and ReMatch, and we have made it very easy to plug in and integrate any other algorithm. The VNE algorithm *selects* the substrate resources (i.e., substrate hosts and links) for serving/mapping the given VNR and passes the *selected substrate resources for mapping* to the next VNR mapping module.
+- **VNE Algorithm**: Once the substrate network is ready and you have the list of VNRs, the VNE algorithms module loops over the list of VNRs trying to serve/map them one at a time. It currently supports multiple VNE algorithms such as MWF, NORD, VNE-NRM, and ReMatch, and we have made it very easy to plug in and integrate any other algorithm. The VNE algorithm *selects* the substrate resources (i.e., substrate hosts and links) for serving/mapping the given VNR and passes the *selected substrate resources for mapping* to the next VNR mapping module.
 
 - **VNR Mapping**: The actual mapping of VNR onto the substrate network happens here. Internally, this module handles IP addressing of the virtual hosts of VNR, flow table updations to support routing packets to virtual hosts, VLAN for isolation between VNRs, traffic control to restrict the bandwidth of a virtual link mapped onto a substrate link, etc.
 
-- **Tests**: For testing the emulator setup and to test if each VNR is getting the allocated resource, we use network performance tools such as *iperf* for performing bandwidth tests. Reachability tests are performed using *ping*, where every virtual host shall be reachable to every other virtual host within the same VNR but not to any other host. CPU limit tests are also performed here to complete end-to-end testing of the VNE emulator.
+- **Tests**: To test the emulator setup and to see if each VNR is getting the allocated resource, we use network performance tools such as *iperf* to perform bandwidth tests. Reachability tests are conducted using *ping*, where every virtual host shall be reachable to every other virtual host within the same VNR but not to any other host. CPU limit tests are also performed here to complete end-to-end testing of the VNE emulator.
 
 </br>
 </br>
@@ -92,11 +92,11 @@ The project work is broadly divided into the following parts:
 
 ### To integrate your VNE algorithm into our emulator
 This section explains how we integrated the [NORD algorithm](https://www.sciencedirect.com/science/article/abs/pii/S1389128623001068) in our emulator. The same set of steps can be followed to integrate any other VNE algorithm.
-- The `vne_algorithm()` function in the module selects which vne algorithm function to call based on the algorithm specified in the configuration file. [vne_algorithms.py#L176]
+- The `vne_algorithm()` function in the module selects a specific VNE algorithm function to call based on the algorithm specified in the configuration file. [vne_algorithms.py#L176]
 - The `_nord_algorithm()` function is called by the previous function. [vne_algorithms.py#L41]
-- A folder called `nord` is added in the code with all the NORD algorithm logic, and we add `nord_support.py` file to handle the conversion of data structures in our code convention to NORD's code convention. The main function in this file is `get_ranked_hosts()`, which returns the ordered list of ranked substrate hosts and ranked virtual hosts (in our code convention). [nord_support.py#L129]
+- A folder called `nord` is added in the code with all the NORD algorithm logic, and we add the `nord_support.py` file to handle the conversion of data structures in our code convention to NORD's code convention. The main function in this file is `get_ranked_hosts()`, which returns the ordered list of ranked substrate hosts and virtual hosts (in our code convention). [nord_support.py#L129]
 - The `ranked_virtual_hosts` and `ranked_substrate_hosts` are then fed into the `_greedy_vne_embedding()` function, which returns the final set of selected substrate resources for mapping this VNR. [vne_algorithms.py#L63]
-- The `vne_algorithm()` function is expected to return `cpu requirements for vnr mapping` and `bandwidth requirement for vnr mapping` in our code's convention, which will further be passed to the next module (VNR mapping) that will perform the actual mapping of VNR on substrate network.
+- The `vne_algorithm()` function is expected to return `CPU requirements for VNR mapping` and `bandwidth requirement for VNR mapping` in our code's convention, which will further be passed to the next module (VNR mapping) that will perform the actual mapping of VNR on substrate network.
      
 ### Testing
 1. Pings for connectivity within VNR hosts
@@ -107,8 +107,8 @@ This section explains how we integrated the [NORD algorithm](https://www.science
 {
     "substrate": {
 
-        "sl_factor": 6,
-        "ll_factor": 3,
+        "sl_factor": 3,
+        "ll_factor": 6,
         "hl_factor": 3,
 
         "cpu_limit_min": 20,
