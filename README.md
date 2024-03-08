@@ -208,14 +208,14 @@ The Proposed EFraS framework is evaluated by implementing the following state-of
 
 Rematch.py -> The Main file related to the  ReMatch baseline approach [1].<br />
 Topsis.py -> The Main file related to the  Proposed NORD approach [2].<br />
-Greedy.py -> The Main file related to the  MFW a Greedy baseline approach [3].<br />
+Greedy.py -> The Main file related to the  MFW, a Greedy baseline approach [3].<br />
 Nrm.py -> The Main file related to the  VNE-NRM baseline approach [4].<br />
 
 ### References
-[1]. A. Satpathy, M. N. Sahoo, L. Behera, C. Swain, ReMatch: An Efficient Virtual Data Center Re-Matching Strategy Based on Matching Theory, IEEE Transactions on Services Computing (2022). doi: https://doi.org/10.1109/TSC.2022.3183259.
-[2]. TG, K. K., Addya, S. K., Satpathy, A., & Koolagudi, S. G. (2023). NORD: NOde Ranking-based efficient virtual network embedding over single Domain substrate networks. Computer Networks, 225, 109661. doi:  https://doi.org/10.1016/j.comnet.2023.109661
-[3]. TG, Keerthan Kumar, et al. "MatchVNE: A Stable Virtual Network Embedding Strategy Based on Matching Theory." 2023 15th International Conference on COMmunication Systems & NETworkS (COMSNETS). IEEE, 2023. doi: https://10.1109/COMSNETS56262.2023.10041377
-[4]. P. Zhang, H. Yao, Y. Liu, Virtual network embedding based on computing, network, and storage resource constraints, IEEE Internet of Things Journal 5 (5) (2017) 3298–3304. doi: https://doi.org/10.1109/JIOT.2017.2726120.
+[1]. A. Satpathy, M. N. Sahoo, L. Behera, C. Swain, ReMatch: An Efficient Virtual Data Center Re-Matching Strategy Based on Matching Theory, IEEE Transactions on Services Computing (2022). doi: https://doi.org/10.1109/TSC.2022.3183259. <br />
+[2]. TG, K. K., Addya, S. K., Satpathy, A., & Koolagudi, S. G. (2023). NORD: NOde Ranking-based efficient virtual network embedding over single Domain substrate networks. Computer Networks, 225, 109661. doi:  https://doi.org/10.1016/j.comnet.2023.109661. <br />
+[3]. TG, Keerthan Kumar, et al. "MatchVNE: A Stable Virtual Network Embedding Strategy Based on Matching Theory." 2023 15th International Conference on COMmunication Systems & NETworkS (COMSNETS). IEEE, 2023. doi: https://10.1109/COMSNETS56262.2023.10041377. <br />
+[4]. P. Zhang, H. Yao, Y. Liu, Virtual network embedding based on computing, network, and storage resource constraints, IEEE Internet of Things Journal 5 (5) (2017) 3298–3304. doi: https://doi.org/10.1109/JIOT.2017.2726120. <br />
 
 
 
